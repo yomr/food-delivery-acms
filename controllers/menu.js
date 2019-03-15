@@ -4,41 +4,58 @@ exports.uploadMenu = function (req, res) {
 
     var jsondata = req.body;
     var new_menus = [];
-    var checkError = false;
+    var err_exists = false;
 
     for (var i = 0; i < jsondata.length; i++) {
 
         //handles null error 
-        if (!jsondata[i].rest_id) {
+        if (!jsondata[i].res_id) {
+            var err_exists = false;
             checkError = true;
             res.status(400).send({
                 success: 'false',
                 message: `restaurant id of ${{ i }} is required`
             });
-        } else if (!jsondata[i].item_id) {
+        }
+        if (!jsondata[i].item_id) {
+            var err_exists = false;
             checkError = true;
             res.status(400).send({
                 success: 'false',
                 message: `itemId is of ${{ i }} required`
             });
-        } else if (!jsondata[i].item_name) {
+        }
+        if (!jsondata[i].itemname) {
+            var err_exists = false;
             checkError = true;
             res.status(400).send({
                 success: 'false',
                 message: `itemName is of ${{ i }} required`
             });
-        } else if (!jsondata[i].item_price) {
+        }
+        if (!jsondata[i].itemprice) {
+            var err_exists = false;
             checkError = true;
             res.status(400).send({
                 success: 'false',
                 message: `itemPrice is of ${{ i }} required`
             });
-        } else {
-            new_menus.push([jsondata[i].rest_id, jsondata[i].item_id, jsondata[i].item_name, jsondata[i].item_price]);
         }
+        if (!jsondata[i].itemcategory) {
+            var err_exists = false;
+            checkError = true;
+            res.status(400).send({
+                success: 'false',
+                message: `itemcategory is of ${{ i }} required`
+            });
+        }
+
+
+        new_menus.push([jsondata[i].res_id, jsondata[i].item_id, jsondata[i].itemname, jsondata[i].itemprice, jsondata[i].itemcategory]);
+
     }
 
-    if (!checkError) {
+    if (!err_exists) {
         Menu.uploadMenu(new_menus, function (err, menu, jsondata) {
             if (err)
                 res.send(err);
