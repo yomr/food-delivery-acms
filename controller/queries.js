@@ -1,0 +1,1 @@
+exports.getMenu = "Select * from menu where res_id = ?";
