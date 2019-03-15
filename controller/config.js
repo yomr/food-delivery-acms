@@ -4,7 +4,7 @@ development: {
         host:   'localhost',
         user:   'root',
         password:'root',
-        database:     'food'
+        database:     'food_portal'
     },
     server: {
         host:   'localhost',
@@ -17,7 +17,7 @@ production: {
         host: 'localhost',
         user:   'root',
         password:'root',
-        database:     'food'
+        database:     'food_portal'
     },
     //server details
     server: {
