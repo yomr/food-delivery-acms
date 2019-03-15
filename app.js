@@ -22,5 +22,5 @@ router.get("/",function(req,res){
 app.use('/', router);
 
 
-var routes = require('./routes/appRoutes.js'); //importing route
+var routes = require('./routes/routes.js'); //importing route
 routes(app); //register the route
