@@ -10,40 +10,40 @@ exports.uploadMenu = function (req, res) {
 
         //handles null error 
         if (!jsondata[i].res_id) {
-            var err_exists = false;
-            checkError = true;
+            err_exists = false;
+            
             res.status(400).send({
                 success: 'false',
                 message: `restaurant id of ${{ i }} is required`
             });
         }
         if (!jsondata[i].item_id) {
-            var err_exists = false;
-            checkError = true;
+            err_exists = false;
+            
             res.status(400).send({
                 success: 'false',
                 message: `itemId is of ${{ i }} required`
             });
         }
         if (!jsondata[i].itemname) {
-            var err_exists = false;
-            checkError = true;
+            err_exists = false;
+            
             res.status(400).send({
                 success: 'false',
                 message: `itemName is of ${{ i }} required`
             });
         }
         if (!jsondata[i].itemprice) {
-            var err_exists = false;
-            checkError = true;
+            err_exists = false;
+            
             res.status(400).send({
                 success: 'false',
                 message: `itemPrice is of ${{ i }} required`
             });
         }
         if (!jsondata[i].itemcategory) {
-            var err_exists = false;
-            checkError = true;
+           err_exists = false;
+            
             res.status(400).send({
                 success: 'false',
                 message: `itemcategory is of ${{ i }} required`
