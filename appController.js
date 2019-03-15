@@ -1,13 +1,13 @@
 'use strict';
 
-//var Task = require('../model/appModel.js');
 var connection = require('./db.js');
 
 
-exports.list_all_rest = function(req, res) {
- // app.get('/',function(req,resp){
+exports.list_all_rest = function(req, res) 
+{
+ 
 	connection.query("SELECT * FROM RESTAURANTS",function(error,rows,fields){
-		if(!!error)
+		if(error)
 		{
 			console.log('Error in query');
 		}
