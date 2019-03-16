@@ -2,11 +2,6 @@ var config = {
 development: {
     db: {
 
-        host:    'localhost',
-        user:    'princy',
-        password:'12345',
-        database: 'food'
-
         host:   'localhost',
         user:   'root',
         password:'root',
@@ -22,14 +17,9 @@ production: {
     //mysql connection settings
     db: {
         host: 'localhost',
-
-        user:   'princy',
-        password:'12345',
-        database:     'food'
-
         user:   'root',
         password:'root',
-        database:     'food_portal'
+        database: 'food_portal'
 
     },
     //server details
