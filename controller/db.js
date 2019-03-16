@@ -4,11 +4,7 @@ var env = process.env.NODE_ENV || 'development';
 var config = require('./config')[env];
 //local mysql db connection
 var connection = mysql.createConnection ({ 
-	host     : config.db.host,
-
-	user     : config.db.user,
-  password : config.db.password,
-	database : config.db.database 
+    host     : config.db.host,
 
     user     : config.db.user,
     password : config.db.password,
@@ -21,8 +17,6 @@ connection.connect(function(err) {
     {
 
    		throw err;
-      
-    	throw err;
 
     }
 });
