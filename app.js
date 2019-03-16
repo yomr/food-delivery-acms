@@ -6,8 +6,6 @@ const express = require('express'),
   	var config = require('./controller/config')[env];
 	app.listen(config.server.port);
 	console.log('API server started ');
-
-	// app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 var routes = require('./routes/routes'); //importing route

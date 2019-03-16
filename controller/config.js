@@ -3,7 +3,7 @@ development: {
     db: {
         host:   'localhost',
         user:   'root',
-        password:'asdfg12345',
+        password:'root',
         database:'food_portal'
     },
     server: {
@@ -16,8 +16,8 @@ production: {
     db: {
         host: 'localhost',
         user:   'root',
-        password:'asdfg12345',
-        database:'food_portal'
+        password:'root',
+        database:     'food_portal'
     },
     //server details
     server: {
