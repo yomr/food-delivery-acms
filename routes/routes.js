@@ -1,4 +1,3 @@
-'use strict';
 module.exports = function(app) {
   var register = require('../controller/regController.js');
 
@@ -14,3 +13,14 @@ module.exports = function(app) {
     .post(register.register_a_dboy);
    
     };
+module.exports = function (app) {
+  var foodMenu = require('../controller/menuController');
+  app.route('/getMenu').get(foodMenu.readMenu);
+}
+module.exports = function (app) {
+  var menu = require('../controller/uploadmenuController');
+  app.route('/upload-menu')
+    .post(menu.uploadMenu);
+
+};
+
