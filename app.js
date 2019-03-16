@@ -1,12 +1,14 @@
 const express = require('express'),
   app = express(),
   bodyParser = require('body-parser');
-port = process.env.PORT || 3000; // For the production deployment
-app.listen(port);
-console.log('API server started on: ' + port);
 
-// app.use(bodyParser.urlencoded({ extended: true }));
+  	var env = process.env.NODE_ENV || 'development';
+  	var config = require('./controller/config')[env];
+	app.listen(config.server.port);
+	console.log('API server started ');
+
+	// app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-var routes = require('./routes/upload-menu'); //importing route
+var routes = require('./routes/routes'); //importing route
 routes(app);

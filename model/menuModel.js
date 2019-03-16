@@ -1,4 +1,4 @@
-var sql = require('./db.js');
+var sql = require('../controller/db.js');
 
 //Menu object constructor
 var menu = function (menu) {

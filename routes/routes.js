@@ -1,5 +1,5 @@
 module.exports = function (app) {
-  var menu = require('../controllers/menu');
+  var menu = require('../controller/uploadmenuController');
 
   app.route('/upload-menu')
     .post(menu.uploadMenu);

@@ -1,4 +1,4 @@
-var Menu = require('../model/menu-model.js');
+var Menu = require('../model/menuModel.js');
 
 exports.uploadMenu = function (req, res) {
 
