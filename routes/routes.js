@@ -17,6 +17,10 @@ module.exports = function (app) {
   var foodMenu = require('../controller/menuController');
   app.route('/getMenu').get(foodMenu.readMenu);
 }
+module.exports = function (app){
+  var getRest = require('../controller/restController');
+  app.route('/getallRestaurants').get(getRest.listAllRest);
+}
 module.exports = function (app) {
   var menu = require('../controller/uploadmenuController');
   app.route('/upload-menu')
