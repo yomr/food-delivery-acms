@@ -6,4 +6,5 @@ exports.postdboy = "INSERT INTO DeliveryBoy set ?";
 exports.getMenu = "Select * from menu where res_id = ?";
 exports.getRest = "Select * from restaurant";
 
+exports.uploadMenu = "INSERT INTO menu (res_id, item_id, itemname, itemprice, itemcategory) VALUES ?";
 

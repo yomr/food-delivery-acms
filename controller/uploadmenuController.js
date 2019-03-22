@@ -2,48 +2,48 @@ var Menu = require('../model/menuModel.js');
 
 exports.uploadMenu = function (req, res) {
 
-    var jsondata = req.body;
-    var new_menus = [];
+    var new_menu = new Menu(req.body.res_id, req.body.items);
     var err_exists = false;
 
-    for (var i = 0; i < jsondata.length; i++) {
+    if (!new_menu.res_id) {
+        err_exists = true;
+
+        res.status(400).send({
+            success: 'false',
+            message: `restaurant id is required`
+        });
+    }
+    for (var i = 0; i < new_menu.items.length; i++) {
 
         //handles null error 
-        if (!jsondata[i].res_id) {
-            err_exists = false;
-            
-            res.status(400).send({
-                success: 'false',
-                message: `restaurant id of ${{ i }} is required`
-            });
-        }
-        if (!jsondata[i].item_id) {
-            err_exists = false;
-            
+
+        if (!new_menu.items[i].item_id) {
+            err_exists = true;
+
             res.status(400).send({
                 success: 'false',
                 message: `itemId is of ${{ i }} required`
             });
         }
-        if (!jsondata[i].itemname) {
-            err_exists = false;
-            
+        if (!new_menu.items[i].itemname) {
+            err_exists = true;
+
             res.status(400).send({
                 success: 'false',
                 message: `itemName is of ${{ i }} required`
             });
         }
-        if (!jsondata[i].itemprice) {
-            err_exists = false;
-            
+        if (!new_menu.items[i].itemprice) {
+            err_exists = true;
+
             res.status(400).send({
                 success: 'false',
                 message: `itemPrice is of ${{ i }} required`
             });
         }
-        if (!jsondata[i].itemcategory) {
-           err_exists = false;
-            
+        if (!new_menu.items[i].itemcategory) {
+            err_exists = true;
+
             res.status(400).send({
                 success: 'false',
                 message: `itemcategory is of ${{ i }} required`
@@ -51,12 +51,12 @@ exports.uploadMenu = function (req, res) {
         }
 
 
-        new_menus.push([jsondata[i].res_id, jsondata[i].item_id, jsondata[i].itemname, jsondata[i].itemprice, jsondata[i].itemcategory]);
+
 
     }
 
     if (!err_exists) {
-        Menu.uploadMenu(new_menus, function (err, menu, jsondata) {
+        Menu.uploadMenu(new_menu, function (err, menu) {
             if (err)
                 res.send(err);
             console.log(menu);

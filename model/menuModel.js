@@ -1,16 +1,19 @@
 var sql = require('../controller/db.js');
-
+var queries = require ('../controller/queries'); 
+var menuUtils = require('../utility/menuUtils')
 //Menu object constructor
-var menu = function (menu) {
-    this.res_id = menu.res_id;
-    this.item_id = menu.item_id;
-    this.itemname = menu.itemname;
-    this.itemprice = menu.itemprice;
-    this.itemcategory = menu.itemcategory;
+var menu = function (res_id, items) {
+    this.res_id = res_id;
+    this.items = items;
 };
-menu.uploadMenu = function uploadMenu(newMenu, result) {
+menu.uploadMenu = function uploadMenu(menu, result) {
 
-    sql.query('INSERT INTO menu (res_id, item_id, itemname, itemprice, itemcategory) VALUES ?', [newMenu], function (err, res) {
+    var menuArray = menuUtils.getObjectArray(menu);
+
+    console.log("dsadasdasdasdasd-----------", menuArray);
+    console.log("dsadasdasdasdasd-----------", menu);
+
+    sql.query(queries.uploadMenu, [menuArray], function (err, res) {
         if (err) {
             throw err;
         }
