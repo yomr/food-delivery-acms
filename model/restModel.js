@@ -16,21 +16,18 @@ var Restaurant_Register = function(Restaurant){
 
 };
 
-console.log("hi");
     Restaurant_Register.createNewRest = function createRest(Restaurant_Register, result) {    
-        sql.query(queries.postrest, Restaurant_Register, function (err, res) {
-         console.log("works");     
+        var params =[Restaurant_Register.name,Restaurant_Register.email,Restaurant_Register.pwd,Restaurant_Register.open_time,Restaurant_Register.close_time,Restaurant_Register.description,Restaurant_Register.rating,Restaurant_Register.res_id,Restaurant_Register.gst_no,Restaurant_Register.res_type];
+        sql.query(queries.postrest, params , function (err, res) {    
                 if(err) {
                     console.log("error");
                     console.log("error: ", err);
                     result(err, null);
                 }
                 else{
-                    console.log("err");
                     result(null,res.insertId);
                     console.log("1 record inserted");
                 }
             });           
 };
-console.log("hi");
 module.exports= Restaurant_Register;
