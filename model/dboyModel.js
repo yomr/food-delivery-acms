@@ -16,19 +16,17 @@ var DeliveryBoy_Register = function(DeliveryBoy){
 
  };
  DeliveryBoy_Register.createNewdboy = function createdboy(DeliveryBoy_Register, result) {    
-        sql.query(queries.postdboy, DeliveryBoy_Register, function (err, res) {
-         console.log("works");     
+        var params=[DeliveryBoy_Register.firstname,DeliveryBoy_Register.lastname,DeliveryBoy_Register.contact,DeliveryBoy_Register.email,DeliveryBoy_Register.pwd,DeliveryBoy_Register.status,DeliveryBoy_Register.rating,DeliveryBoy_Register.vechile_no,DeliveryBoy_Register.licence_no,DeliveryBoy_Register.dboy_id];
+        sql.query(queries.postdboy, params, function (err, res) {
                 if(err) {
                     console.log("error");
                     console.log("error: ", err);
                     result(err, null);
                 }
                 else{
-                    console.log("err");
                     result(null,res.insertId);
                     console.log("1 record inserted");
                 }
             });       
 };
-console.log("hi");
 module.exports= DeliveryBoy_Register;

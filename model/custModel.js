@@ -13,7 +13,8 @@ var Customer_Register = function(Customer){
 
 };
 Customer_Register.createNewUser = function createUser(Customer_Register, result) {    
-        sql.query(queries.postcust, Customer_Register, function (err, res) {
+        var params=[Customer_Register.firstname,Customer_Register.lastname,Customer_Register.contact,Customer_Register.email,Customer_Register.pwd,Customer_Register.cust_id];
+        sql.query(queries.postcust,params, function (err, res) {
          console.log("works");     
                 if(err) {
                     console.log("error");
@@ -27,5 +28,5 @@ Customer_Register.createNewUser = function createUser(Customer_Register, result)
                     console.log("1 record inserted");
                 }
             });             
-    };
+};
 module.exports= Customer_Register;

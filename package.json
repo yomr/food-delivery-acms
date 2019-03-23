@@ -1,21 +1,8 @@
 {
   "name": "food-delivery-acms",
   "version": "1.0.0",
-  "description": "",
+  "description": "ACMS project: Food delivery app",
   "main": "app.js",
-  "dependencies": {
-    "body-parser": "^1.18.3",
-    "express": "^4.14.0",
-    "mysql": "^2.16.0"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
-  },
-  "author": "",
-  "license": "ISC",
-  "keywords": [],
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
@@ -24,5 +11,19 @@
   "devDependencies": {
     "nodemon": "^1.18.10"
   },
-  "description": ""
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yomr/food-delivery-acms.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yomr/food-delivery-acms/issues"
+  },
+  "homepage": "https://github.com/yomr/food-delivery-acms#readme"
 }
