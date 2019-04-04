@@ -11,7 +11,7 @@ create table DeliveryBoy (user_id varchar(20) not null,firstname varchar(20) not
 
 create table Menu (res_id varchar(20) not null,item_id integer not null, itemname Varchar(20) not null, itemcategory varchar(7) not null, itemprice integer not null, Primary key(res_id,item_id), foreign key(res_id) references Restaurant(user_id));
 
-create table Order_Details (order_id int primary key auto_increment, res_id varchar(20) not null, dboy_id varchar(20) not null, order_status varchar(20) not null,cust_id varchar(20),amount int(8) not null, foreign key(res_id) references Restaurant(user_id),foreign key(cust_id) references Customer(user_id),foreign key(dboy_id) references DeliveryBoy(user_id));
+create table Order_Details (order_id int primary key auto_increment, res_id varchar(20) not null, dboy_id varchar(20), order_status varchar(20),cust_id varchar(20),amount int(8) not null, foreign key(res_id) references Restaurant(user_id),foreign key(cust_id) references Customer(user_id),foreign key(dboy_id) references DeliveryBoy(user_id));
 
 create table Feedback(order_id int not null, res_review varchar(100) not null, dboy_review varchar(100), res_rating int(1) ,dboy_rating int(1),foreign key(order_id) references Order_Details(order_id) );
 
