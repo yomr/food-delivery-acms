@@ -1,0 +1,110 @@
+<script type="text/javascript">
+
+    function toggle_visibility_hide(id) {
+        var e = document.getElementById(id);
+        e.style.display = 'none';
+    }
+
+    function toggle_visibility_show(id) {
+        var e = document.getElementById(id);
+        e.style.display = 'block';
+    }
+
+
+    function insRow() {
+        var x = document.getElementById('POITable');
+
+        var new_row = x.rows[1].cloneNode(true);
+        var len = x.rows.length;
+        
+        var inp1 = new_row.cells[1].getElementsByTagName('input')[0];
+        inp1.id += len;
+        inp1.placeholder = 'Item Price';
+        inp1.value = "";
+        inp1.class = 'form-control';
+        var inp2 = new_row.cells[2].getElementsByTagName('input')[0];
+        inp2.id += len;
+        inp2.value = "";
+        inp2.placeholder = 'Item Category';
+        inp2.class = 'form-control';
+        x.appendChild(new_row);
+    }
+    function deleteRow(row) {
+        var i = row.parentNode.parentNode.rowIndex;
+        document.getElementById('POITable').deleteRow(i);
+    }
+
+</script>
+<div id="popupBoxOnePosition">
+    <div class="popupBoxWrapper">
+        <div class="popupBoxContent">
+
+            <div class="heading">
+                <div class="card-text-heading">Add Items
+                </div>
+            </div>
+
+            <div style="margin-top: 108px; margin-left: 30px;">
+                <div id="POItablediv">
+                    <form method="POST" action="/upload-menu ">
+                        <table id="POITable" class="table table-hover">
+                            <tr>
+                            </tr>
+                            <tr class="table-light">
+
+                                <td><input class="form-control" placeholder="Item Name" type="type" name="itemname"
+                                        id="latbox" /></td>
+                                <td><input class="form-control" placeholder="Item Price" type="type" name="itemprice"
+                                        id="lngbox" /></td>
+                                <td><input class="form-control" placeholder="Item Category" type="type"
+                                        name="itemcategory" id="lngbo" /></td>
+                                <td><input type="button" class="btn btn-danger" id="delPOIbutton" value="Remove"
+                                        onclick="deleteRow(this)" /></td>
+                                <td></td>
+                            </tr>
+
+
+                        </table>
+                        <td>
+                            <input type="button" class="btn btn-success" id="addmorePOIbutton" value="Add More Items"
+                                onclick="insRow()" />
+                        </td>
+                        <td>
+                            <input type="submit" onclick="toggle_visibility('popupBoxOnePosition');"
+                                class="btn btn-success" value="Upload">
+                        </td>
+                        <td>
+                            <input type="button" onclick="toggle_visibility_hide('popupBoxOnePosition');"
+                                class="btn btn-danger" value="Cancel">
+                        </td>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<aside id="left-panel" class="left-panel">
+    <nav class="navbar navbar-expand-sm ">
+        <div id="main-menu" class="main-menu">
+            <ul class="nav navbar-nav">
+                <li class="menu">
+                    <a href="/restaurant-home"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
+                </li>
+                <li class="menu">
+                    <a href="javascript:void(0)" onclick="toggle_visibility_show('popupBoxOnePosition');"><i
+                            class="menu-icon fa fa-upload"></i>Upload Items </a>
+                </li>
+                <li class="menu">
+                    <a href="/edit-item"><i class="menu-icon fa fa-pencil-square-o"></i>Edit Items </a>
+                </li>
+                <li class="menu">
+                    <a href="/past-orders"><i class="menu-icon fa fa-sticky-note-o"></i>Past Orders </a>
+                </li>
+                <li class="menu">
+                    <a href="/current-orders"><i class="menu-icon fa fa-sticky-note-o"></i>Current Orders </a>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </nav>
+</aside>

@@ -1,0 +1,29 @@
+<div class="heading">
+    <div class="card-text-heading">Items List
+    </div>
+</div>
+
+<div class="card-body">
+    <div>
+        <table class="table ">
+            <thead>
+                <tr>
+                    <th class="serial">#</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Category</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(var i=0; i < items.length; i++) { %>
+                <tr>
+                    <td><%= i+1 %></td>
+                    <td><%= items[i].itemname %></td>
+                    <td><%= items[i].itemprice %></td>
+                    <td><%= items[i].itemcategory %></td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div> <!-- /.table-stats -->
+</div>

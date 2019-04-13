@@ -1,0 +1,105 @@
+<script type="text/javascript">
+
+    function toggle_visibility(id, button_id) {
+        var e = document.getElementById(id);
+
+        var items = '<%- JSON.stringify(items) %>';
+        var obj = JSON.parse(items);
+        console.log(obj);
+        console.log(obj[button_id].itemname);
+        document.getElementById("item_id_popup").value = obj[button_id].item_id;
+        document.getElementById("edit-name").value = obj[button_id].itemname;
+        document.getElementById("edit-price").value = obj[button_id].itemprice;
+        document.getElementById('edit-category').value = obj[button_id].itemcategory;
+
+        if (e.style.display == 'block')
+            e.style.display = 'none';
+
+        else
+            e.style.display = 'block';
+    }
+    function delete_item(id) {
+        var items = '<%- JSON.stringify(items) %>';
+        var obj = JSON.parse(items);
+        method = "post";
+        var form = document.createElement("form");
+        form.setAttribute("method", method);
+        form.setAttribute("action", "/delete-item");
+        var hiddenField = document.createElement("input");
+        hiddenField.setAttribute("type", "hidden");
+        hiddenField.setAttribute("name", "item_id");
+        hiddenField.setAttribute("value", obj[id].item_id);
+
+        form.appendChild(hiddenField);
+
+        document.body.appendChild(form);
+        form.submit();
+    }
+    //-->
+</script>
+
+
+<div class="heading">
+    <div class="card-text-heading">Items List
+    </div>
+</div>
+
+<div id="popupBoxTwoPosition">
+    <div class="popupBoxWrapper">
+        <div class="popupBoxContent">
+            <form method="POST" action="/edit-menu-update ">
+                <table id="POITable" class="table table-hover">
+                    <tr>
+                    </tr>
+                    <tr class="table-light">
+                        <td><input type="hidden" name="res_id" value='<%= res_id %>'></td>
+                        <td><input type="hidden" id="item_id_popup" name="item_id"></td>
+                        <td><input class="form-control" placeholder="Item Name" type="type" name="itemname"
+                                id="edit-name" /></td>
+                        <td><input class="form-control" placeholder="Item Price" type="type" name="itemprice"
+                                id="edit-price" /></td>
+                        <td><input class="form-control" placeholder="Item Category" type="type" name="itemcategory"
+                                id="edit-category" /></td>
+                        <td></td>
+                    </tr>
+                </table>
+                <td>
+                    <input type="submit" onclick="toggle_visibility('popupBoxTwoPosition');" class="btn btn-success"
+                        value="Edit">
+                </td>
+        </div>
+        </form>
+
+    </div>
+</div>
+
+<div class="card-body">
+    <div>
+        <table class="table ">
+            <thead>
+                <tr>
+                    <th class="serial">#</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Category</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(var i=0; i < items.length; i++) { %>
+                <tr>
+                    <td><%= i+1 %></td>
+                    <td><%= items[i].itemname %></td>
+                    <td><%= items[i].itemprice %></td>
+                    <td><%= items[i].itemcategory %></td>
+                    <td>
+                        <button type="button" id='<%= i %>' onclick="toggle_visibility('popupBoxTwoPosition',this.id);"
+                            class="btn btn-danger">Edit</button>
+                        <button type="button" id='<%= i %>' onclick="delete_item(this.id);"
+                            class="btn btn-danger">Delete</button>
+                    </td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div> <!-- /.table-stats -->
+</div>
