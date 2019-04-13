@@ -3,9 +3,9 @@ development: {
     db: {
 
         host:   'localhost',
-        user:   'princy',
-        password:'12345',
-        database:'food'
+        user:   'root',
+        password:'root',
+        database:'food_portal'
 
     },
     server: {
@@ -17,9 +17,9 @@ production: {
     //mysql connection settings
     db: {
         host: 'localhost',
-        user:   'princy',
-        password:'12345',
-        database: 'food'
+        user:   'root',
+        password:'root',
+        database: 'food_portal'
 
     },
     //server details
