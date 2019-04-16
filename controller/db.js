@@ -8,7 +8,8 @@ var connection = mysql.createConnection ({
 
     user     : config.db.user,
     password : config.db.password,
-    database : config.db.database 
+    database : config.db.database,
+    multipleStatements: true 
 
 });
 
