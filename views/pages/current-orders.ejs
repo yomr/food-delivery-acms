@@ -1,0 +1,154 @@
+<script type="text/javascript">
+
+    function toggle_visibility(id, button_id) {
+        var e = document.getElementById(id);
+        var parent = document.getElementById("tableParent");
+        parent.innerHTML = '';
+
+        var results = '<%- JSON.stringify(results) %>';
+        var obj = JSON.parse(results);
+
+        var order_id = '<%- JSON.stringify(order_id) %>';
+        var order_obj = JSON.parse(order_id);
+        var index = order_obj.length + Number(button_id);
+
+        var total = 0;
+        for (let i = 0; i < obj[index].length; i++) {
+            var tr = document.createElement("TR");
+            var td1 = document.createElement("TD");
+            td1.innerHTML = obj[index][i].itemname;
+            var td2 = document.createElement("TD");
+            td2.innerHTML = obj[index][i].price;
+            var td3 = document.createElement("TD");
+            td3.innerHTML = obj[index][i].quantity;
+            var td4 = document.createElement("TD");
+            td4.innerHTML = Number(obj[index][i].quantity) * Number(obj[index][i].price);
+            total += Number(obj[index][i].quantity) * Number(obj[index][i].price);
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            tr.appendChild(td3);
+            tr.appendChild(td4);
+            parent.appendChild(tr);
+        }
+        var order_deny_id = document.getElementById("order_deny_id");
+        order_deny_id.id = obj[index][0].orderid;
+        var order_accept_id = document.getElementById("order_accept_id");
+        order_accept_id.id = obj[index][0].orderid;
+        var t = document.getElementById("total");
+        t.innerHTML = "Total: " + total;
+
+        if (e.style.display == 'block'){
+            clearTimeout(reload);
+            e.style.display = 'none';
+        }
+
+        else 
+            e.style.display = 'block';
+    }
+
+    var reload = setTimeout(function() {
+        window.location = "/current-orders";
+    }, 10000); 
+
+    function deny_order(id) {
+
+        var order_id = '<%- JSON.stringify(order_id) %>';
+        var order_obj = JSON.parse(order_id);
+
+        method = "post";
+        var form = document.createElement("form");
+        form.setAttribute("method", method);
+        form.setAttribute("action", "/deny-order");
+        var hiddenField = document.createElement("input");
+        hiddenField.setAttribute("type", "hidden");
+        hiddenField.setAttribute("name", "order_id");
+        hiddenField.setAttribute("value", id);
+
+        form.appendChild(hiddenField);
+
+        document.body.appendChild(form);
+        form.submit();
+    }
+
+    function accept_order(id) {
+
+        var order_id = '<%- JSON.stringify(order_id) %>';
+        var order_obj = JSON.parse(order_id);
+        
+        method = "post";
+        var form = document.createElement("form");
+        form.setAttribute("method", method);
+        form.setAttribute("action", "/accept-order");
+        var hiddenField = document.createElement("input");
+        hiddenField.setAttribute("type", "hidden");
+        hiddenField.setAttribute("name", "order_id");
+        hiddenField.setAttribute("value", id);
+
+        form.appendChild(hiddenField);
+
+        document.body.appendChild(form);
+        form.submit();
+    }
+
+
+</script>
+
+<div id="popupBoxThreePosition" class="alert alert-dismissible alert-light">
+    <div class="popupBoxWrapper">
+        <div class="popupBoxContent">
+            <table class="table ">
+                <thead>
+                    <tr>
+                        <th class="serial">Item Name</th>
+                        <th>Item Price</th>
+                        <th>Item Quantity</th>
+                        <th>Total Price</th>
+                    </tr>
+                </thead>
+                <tbody id="tableParent">
+                </tbody>
+            </table>
+            <div style="width: 100%;">
+                <h5 class="modal-title" style="margin-right:50px; text-align:right" id="total">Total</h5><br>
+            </div>
+            <td>
+                <input type="button" id="order_accept_id" onclick="accept_order(this.id);" class="btn btn-success"
+                    value="Accept">
+            </td>
+            <td>
+                <input type="button" id="order_deny_id" onclick="deny_order(this.id);" class="btn btn-danger" value="Deny">
+            </td>
+        </div>
+    </div>
+</div>
+
+<div class="heading">
+    <div class="card-text-heading">Current Orders
+    </div>
+</div>
+
+
+<div class="card-body">
+    <div>
+        <table class="table ">
+            <thead>
+                <tr>
+                    <th class="serial">Order Id</th>
+                    <th>Customer Name</th>
+                    <th>Order Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(var i=2; i <= order_id.length + 1; i++) { %>
+                <tr>
+                    <td><%= order_id[i-2] %></td>
+                    <td><%= results[i] %></td>
+                    <td><%= order_status[i-2] %></td>
+                    <td><input type="button" class="btn btn-success" id="<%= i %>" value="More Info"
+                            onclick="toggle_visibility('popupBoxThreePosition',this.id);" /></td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div> <!-- /.table-stats -->
+</div>

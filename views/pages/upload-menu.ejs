@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Simple Popup Boxes</title>
+
+    <script type="text/javascript">
+
+        function toggle_visibility(id) {
+            var e = document.getElementById(id);
+            if (e.style.display == 'block')
+                e.style.display = 'none';
+            else
+                e.style.display = 'block';
+        }
+    </script>
+
+    <style type="text/css">
+        .popup-position {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            width: 100%;
+            height: 100%;
+        }
+
+        #popup-wrapper {
+            text-align: left;
+        }
+
+        #popup-container {
+
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            margin: 70px auto;
+        }
+
+        a {
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="popup-wrapper">
+        <div id="popup-container">
+            <h5>Contact Us</h5>
+            <form>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea class="form-control"></textarea>
+                </div>
+            </form>
+            <div class="modal-footer">
+                <button class="btn btn-primary btn-block">Submit</button>
+                <p><a herf="javascript:void(0)" onclick="toggle_visibility('contact-popup');">Close Popup</a></p>
+            </div>
+        </div>
+</body>
+
+</html>
