@@ -1,0 +1,157 @@
+<html>
+<head>
+    <title>Restaurant</title>
+    <style>
+    body{
+    margin: 0;
+    padding: 0;
+    background: url(../RegisterLoginBackground.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 160%;
+    font-family: sans-serif;
+    }
+
+    .loginbox{
+    width: 320px;
+    height: 1180px;
+    background: #000;
+    color: #fff;
+    top: 80%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+    }
+
+    .avatar{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: -50px;
+    left: calc(50% - 50px);
+    }
+
+    h1{
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+    }
+
+    .loginbox p{
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    }
+
+    .loginbox input{
+    width: 100%;
+    margin-bottom: 20px;
+    }
+    .loginbox select{
+    width: 100%;
+    margin-bottom: 20px;
+    }
+
+    .loginbox input[type="text"], input[type="password"], input[type="email"], input[type="time"]
+    {
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+    }
+    .loginbox select[name="type"],select[name="rest_type"],select[name="VegNonVeg"]
+    {
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+    }
+    .loginbox input[type="submit"]
+    {
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #fb2525;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+    }
+    .loginbox input[type="submit"]:hover
+    {
+    cursor: pointer;
+    background: #ffc107;
+    color: #000;
+    }
+    .loginbox a{
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 20px;
+    color: darkgrey;
+    }
+
+    .loginbox a:hover
+    {
+    color: #ffc107;
+    }
+
+    </style>
+</head>
+<body>
+    <div class="loginbox">
+    <img src="../login.png" class="avatar">
+        <h1>Sign Up Here</h1>
+        <form action="../registeration" method="POST">
+            <p>Type Of User</p>
+                 <select name="type">
+                    <option value="Customer">Customer</option>
+                    <option value="Restaurant">Restaurant</option>
+                    <option value="DeliveryBoy">DeliveryBoy</option>
+                </select>
+            <p>Restaurant Id</p>
+            <input type="text" name="user_id" placeholder="r123" pattern="[r/R][0-9][0-9]*" required>
+            <p>Name</p>
+            <input type="text" name="name" placeholder="abc" required>
+            <p>Email</p>
+            <input type="email" name="email" placeholder="abc@xyz" required>
+            <p>Opening Time</p>
+            <input type="time" name="open_time" placeholder="12:00" required>
+            <p>Closing Time</p>
+            <input type="time" name="close_time" placeholder="12:00" required>
+            <p>GST No.</p>
+            <input type="text" name="gst_no" placeholder="123" required>
+            <p>Restaurant Type</p>
+                <select name="rest_type">
+                    <option value="South Indian">South Indian</option>
+                    <option value="North Indian">North Indian</option>
+                    <option value="Italian">Italian</option>
+                    <option value="Chinese">Chinese</option>
+                    <option value="Multi Cuisine">Multi Cuisine</option>
+                </select>
+            <p>Address</p>
+            <input type="text" name="address" placeholder="Flat no/street" required>
+            <p>City</p>
+            <input type="text" name="city" placeholder="city" pattern="[A-Za-z][A-Za-z]*" required>
+            <p>Password</p>
+            <input type="password" name="pwd" placeholder="*******" required>
+            <p>Veg/NonVeg</p>
+                <select name="VegNonVeg">
+                    <option value="Vegeterian">Vegeterain</option>
+                    <option value="Non Vegeterian">Non Vegeterian</option>
+                </select>
+            <input type="submit" name="" value="Register">
+             <a href="/login">Already have an account? Sign in</a>
+        </form>      
+    </div>
+</body>
+</html>
