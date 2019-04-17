@@ -1,0 +1,75 @@
+<html>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="./stylesheets/stylesheet.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<title>Foodie</title>
+</head>
+<div id=container">
+<body class="user-body" style="background-color:#CB4335; background-repeat: no-repeat; background-position: center; background-size: cover; background-origin: center ; height: auto ">
+	<section>
+		<div>
+			<nav class="head  navbar-default">
+			  <div class="container-fluid">
+			    <div class="navbar-header"style=" width:20% ,background-color:#F5B7B1">
+			    <img src="images/logo.png" class="fl img-responsive" width="100" height="60" />
+			    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#Navbar">
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			      </button>
+			      
+			      <!--<a class="navbar-brand" href="/" id="websitename">Foodie</a>-->
+			    </div>
+			    <div class="collapse navbar-collapse" id="Navbar">
+			        <ul class="nav navbar-nav navbar-right" style="display:inline-block; font-size:15px;padding-right:20px;padding-top: 10px; text-align:center; border:5px #f46542; border-radius:5px;">   
+			             <li><a href="/allOrders"><button class="btn btn-lg btn-default">Your Current Order</button></a></li>
+			             <li><a href="/"><button class="btn btn-lg btn-success">Logout</button></a></li>
+			    </ul>
+			  </div>
+			  </div>
+			</nav>
+		</div>
+	<!--<div class="container">
+    <form action="/">
+    		<input type="text" placeholder="Location" name="location">
+    		
+      		<input type="text" placeholder="Search.." name="search">
+      		<button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
+	<div>
+		
+	</div>
+		<img src="images/underconstruction.png" class="ud"/>-->
+<div style="background-color:white,padding:20px">
+	<h3 style="text-align: center"> Hi, <%= user[0].firstname %>! </h3>
+		
+<% 	var count = Object.keys(print).length; %>
+
+</div>
+
+<div class="grid" style="margin-top: 30px;">
+<% for(var i=0;i< count;i++) { %>
+	<div>
+		<img src="/images/rest.png"/>
+		<a href="/getMenu?res_id=<%= print[i].user_id %>"> <%= print[i].name %> </a>
+		<h5> Rating : <%= print[i].rating %> </h5>
+		<h5> <%= print[i].rest_type %> </h5>
+		<h5> <%= print[i].description %> </h5>
+	</div>
+
+<% } %>
+
+
+
+	</section>
+		<div class="clr"></div>
+
+</body>
+<% include partialviews/footer %>
+</div>
+</html>

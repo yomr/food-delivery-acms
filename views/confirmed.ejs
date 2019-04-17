@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<style type="text/css">
+  .loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  margin-left: 600px; 
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+</style>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0">
+<head>
+    <title>Order Status</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> 
+</head>
+
+<body class="col-lg-12" style="background-image: url('/images/orderpg.jpg'); height:auto; background-repeat: no-repeat; background-position: center; background-size: cover; background-origin: center ; " >
+	<nav class="head  navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header"style=" width:20%;">
+    <img src="images/logo.png" class="fl img-responsive" width="100" height="60" />
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#Navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+      <!--<a class="navbar-brand" href="/" id="websitename">Foodie</a>-->
+    </div>
+    <div class="collapse navbar-collapse" id="Navbar">
+        <ul class="nav navbar-nav navbar-right" style="display:inline-block; font-size:15px;padding-right:20px;padding-top: 10px; text-align:center; border:5px #f46542; border-radius:5px">    
+             <li><a href="/"><button class="btn btn-lg btn-success">Logout</button></a></li>
+    </ul>
+  </div>
+  </div>
+</nav>
+<div class="p-3 mb-2 bg-white text-dark">
+   <h1 class="text-center" style="background-color: transparent; padding: 20px">Order #<%= order[0].order_id %> </h1>
+</div>
+<div>
+   <h3 class="text-center text-success" style="background-color: transparent; padding: 10px"><img src="/images/done.jpg" height="40" width="40"><b> Confirmed by Restaurant!</b></h3>
+</div>
+<div class="text-center" style="margin: 10px;background-color: transparent;">
+    <% if (da.length > 0) { %>
+   <h3 class="text-center text-success"><img src="/images/done.jpg" height="40" width="40">  <b>Delivery Agent assigned</b><br>
+   <h4 class="text-dark">Delivery Agent Name: <%= da[0].firstname %><br></h4>
+   <h4><%= da[0].rating %><img src="images/star.png" height="20" width="20"><br></h4>
+   <h4>Delivery Agent Vehicle Number:<%= da[0].vehicle_no %><br></h4>
+   <h4>Delivery Agent Contact: <%= da[0].contact %><br></h4>
+ </h3>
+</div>
+<div class="text-center" style="margin: 10px;background-color: transparent ;">
+   <div class="loader"></div><h3>Order is on its way to you...<br>
+ </h3>
+</div>
+<% } else { %>
+   <div class="text-center" style="margin: 10px; background-color: transparent;">
+    <div class="loader"></div><h3 class="text-center text">Please Wait... No Delivery Agent is free </h3>
+   </div>
+<% } %>
+
+<script>
+  setTimeout(function () {
+     window.location = '/orderStatus';
+  }, 10000);
+</script>
+</body>
+</html>
