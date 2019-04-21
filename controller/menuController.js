@@ -26,7 +26,7 @@ exports.orderPlaced = function(req,res) {
     console.log("heyy "+cartlen);
     console.log(cust_id);
     console.log(res_id);
-    sql.query('INSERT INTO order_details (res_id,cust_id,order_status) values (?,?,?)',[res_id,cust_id,'Processing'], function (err, rows) {             
+    sql.query('INSERT INTO order_details (res_id,cust_id,order_status,amount) values (?,?,?,?)',[res_id,cust_id,'Processing',0], function (err, rows) {             
                 if(err) {
                     res.send(err);
                 }
@@ -53,7 +53,6 @@ exports.orderPlaced = function(req,res) {
                         }
                         else
                         {
-                            console.log("out");
                             res.redirect('/orderStatus');   
                             console.log("redirecting..");        
                         }
@@ -62,5 +61,4 @@ exports.orderPlaced = function(req,res) {
                 });
                 }
             });
-
 };
