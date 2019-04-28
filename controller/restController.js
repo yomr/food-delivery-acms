@@ -16,9 +16,6 @@ exports.userDetails = function(req, res)
 		else
 		{
 			console.log('Successful query');
-			  //var count = Object.keys(rows[0]).length;
- 			 //console.log(count);
-
 			console.log(rows);
 			res.render('user.ejs', { print:rows[0],user:rows[1]});
 		}
@@ -35,7 +32,7 @@ exports.allOrderDetails = function(req,res)
 		}
 		else
 		{
-			res.render('allOrders.ejs',{orders:rows});
+			res.redirect('/orderStatus');
 		}
 	});
 };
