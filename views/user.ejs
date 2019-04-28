@@ -50,8 +50,9 @@
 		<a href="/getMenu?res_id=<%= print[i].user_id %>"> <%= print[i].name %> </a>
 		<h5> Rating : <%= print[i].rating %> </h5>
 		<h5> <%= print[i].rest_type %> </h5>
-		<h5> <%= print[i].description %> </h5>
-	</div>
+		<% if (print[i].VegNonVeg =="Vegeterian") { %>
+                    <img src="/images/pureveg.jpg" height="30" width="20">
+        <% } %>	</div>
 
 <% } %>
 
