@@ -10,17 +10,6 @@ var feedback = require('../controller/ReviewController.js');
 const router = app => {
 
   app.route('/restaurant-home').get(restaurant.home);
-  //app.route('/test-client').get(testClient.testRestaurantHome);
-  app.route('/upload-item').get(restaurant.uploadItems);
-  app.route('/edit-item').get(restaurant.editItems);
-  app.route('/edit-menu-update').post(restaurant.editMenuUpdate);
-  app.route('/delete-item').post(restaurant.deleteItem);
-  app.route('/past-orders').get(restaurant.pastOrders);
-  app.route('/current-orders').get(restaurant.currentOrders);
-  app.route('/deny-order').post(restaurant.denyOrder);
-  app.route('/accept-order').post(restaurant.acceptOrder);
-  app.route('/restaurant-home').get(restaurant.home);
-  //app.route('/test-client').get(testClient.testRestaurantHome);
   app.route('/upload-item').get(restaurant.uploadItems);
   app.route('/edit-item').get(restaurant.editItems);
   app.route('/edit-menu-update').post(restaurant.editMenuUpdate);
