@@ -16,17 +16,23 @@
 
         var new_row = x.rows[1].cloneNode(true);
         var len = x.rows.length;
-
-        var inp1 = new_row.cells[1].getElementsByTagName('input')[0];
-        inp1.id += len;
-        inp1.placeholder = 'Item Price';
-        inp1.value = "";
-        inp1.class = 'form-control';
-        var inp2 = new_row.cells[2].getElementsByTagName('input')[0];
-        inp2.id += len;
-        inp2.value = "";
-        inp2.placeholder = 'Item Category';
-        inp2.class = 'form-control';
+        
+        var itemNameCell = new_row.cells[0].getElementsByTagName('input')[0];
+        itemNameCell.id += len;
+        itemNameCell.placeholder = 'Item Name';
+        itemNameCell.value = "";
+        itemNameCell.class = 'form-control';
+        var itemPriceCell = new_row.cells[1].getElementsByTagName('input')[0];
+        itemPriceCell.id += len;
+        itemPriceCell.placeholder = 'Item Price';
+        itemPriceCell.value = "";
+        itemPriceCell.class = 'form-control';
+        var itemCategoryCell = new_row.cells[2].getElementsByTagName('select')[0];
+        var defaultOption = new Option("Item Category", "", true, true);
+        defaultOption.hidden = true;
+        defaultOption.disabled = true;
+        itemCategoryCell.class = "form-control";
+        itemCategoryCell.appendChild(defaultOption);
         x.appendChild(new_row);
     }
     function deleteRow(row) {
@@ -65,9 +71,14 @@
                                 <td><input class="form-control" placeholder="Item Name" type="type" name="itemname"
                                         id="latbox"  required/></td>
                                 <td><input class="form-control" placeholder="Item Price" type="type" name="itemprice"
-                                        id="lngbox"  pattern="[0-9]*"required /></td>
-                                <td><input class="form-control" placeholder="Item Category" type="type"
-                                        name="itemcategory" id="lngbo"  required/></td>
+                                        id="lngbox" pattern="[0-9]*" required /></td>
+                                <td><select class="form-control" placeholder="Item Category" type="type"
+                                        name="itemcategory" id="lngbo" >
+                                        <option selected disabled hidden>Item Category</option>
+                                        <option value="Veg">Veg</option>
+                                        <option value="Non Veg">Non Veg</option>
+                                    </select>
+                                    </td>
                                 <td><input type="button" class="btn btn-danger" id="delPOIbutton" value="Remove"
                                         onclick="deleteRow(this)" /></td>
                                 <td></td>
