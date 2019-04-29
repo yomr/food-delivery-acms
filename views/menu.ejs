@@ -357,6 +357,7 @@
                        data: {cartcontent} ,
                       success: function(data) {
                         window.location='/orderStatus';
+                        localStorage.clear();
                        },
                        error: function(jqXHR, textStatus, err) {
                            alert('text status '+textStatus+', err '+err)
