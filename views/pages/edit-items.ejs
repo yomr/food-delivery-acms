@@ -55,11 +55,11 @@
                         <td><input type="hidden" name="res_id" value='<%= res_id %>'></td>
                         <td><input type="hidden" id="item_id_popup" name="item_id"></td>
                         <td><input class="form-control" placeholder="Item Name" type="type" name="itemname"
-                                id="edit-name" /></td>
+                                id="edit-name" required/></td>
                         <td><input class="form-control" placeholder="Item Price" type="type" name="itemprice"
-                                id="edit-price" /></td>
+                                id="edit-price" pattern="[0-9]*"required/></td>
                         <td><input class="form-control" placeholder="Item Category" type="type" name="itemcategory"
-                                id="edit-category" /></td>
+                                id="edit-category" required /></td>
                         <td></td>
                     </tr>
                 </table>

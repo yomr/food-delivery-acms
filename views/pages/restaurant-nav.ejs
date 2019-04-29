@@ -16,7 +16,7 @@
 
         var new_row = x.rows[1].cloneNode(true);
         var len = x.rows.length;
-        
+
         var inp1 = new_row.cells[1].getElementsByTagName('input')[0];
         inp1.id += len;
         inp1.placeholder = 'Item Price';
@@ -33,7 +33,17 @@
         var i = row.parentNode.parentNode.rowIndex;
         document.getElementById('POITable').deleteRow(i);
     }
-
+    
+    // const lngbox = document.getElementById('lngbox');
+    // lngbox.checkValidity();
+    // function checkValidity() {
+        
+    //     var re = /[1-9][0-9]*/;
+    //     var validPrice= re.test(lngbox.value);
+    //     if(!validPrice)
+    //         alert("Please enter a valid amount");
+        
+    // }
 </script>
 <div id="popupBoxOnePosition">
     <div class="popupBoxWrapper">
@@ -53,11 +63,11 @@
                             <tr class="table-light">
 
                                 <td><input class="form-control" placeholder="Item Name" type="type" name="itemname"
-                                        id="latbox" /></td>
+                                        id="latbox"  required/></td>
                                 <td><input class="form-control" placeholder="Item Price" type="type" name="itemprice"
-                                        id="lngbox" /></td>
+                                        id="lngbox"  pattern="[0-9]*"required /></td>
                                 <td><input class="form-control" placeholder="Item Category" type="type"
-                                        name="itemcategory" id="lngbo" /></td>
+                                        name="itemcategory" id="lngbo"  required/></td>
                                 <td><input type="button" class="btn btn-danger" id="delPOIbutton" value="Remove"
                                         onclick="deleteRow(this)" /></td>
                                 <td></td>
