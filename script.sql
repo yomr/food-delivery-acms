@@ -21,6 +21,11 @@ insert into restaurant values ('R3','Truffles','truffles@gmail.com','12345','10:
 insert into restaurant values ('R10','Pizza Hut','pizzahut@gmail.com','12345','09:00:00','20:00:00','Non Vegeterian',5,'GST9395','Italian','Neeladri Nagar','Bangalore');
 insert into restaurant values ('R1','Phunjabi','phunjabi@gmail.com','12345','10:00:00','22:00:00','Non Vegeterian',4,'GST2295','North Indian','Indiranagar','Bangalore');
 insert into restaurant values ('R2','Moriz','moriz@gmail.com','12345','12:00:00','22:00:00','Non Vegeterian',3,'GST2375','Multi Cuisine','Neeladri Nagar','Bangalore');
+insert into restaurant values ('R4','Homely','homely@gmail.com','12345','10:00:00','22:00:00','Vegeterian',4,'GST2495','Multi Cuisine','Kalyan Nagar','Bangalore');
+insert into restaurant values ('R5','Dominoes','dominoes@gmail.com','12345','09:00:00','20:00:00','Non Vegeterian',5,'GST98895','Italian','HSR','Bangalore');
+insert into restaurant values ('R7','Punjabi Dhabah','pd@gmail.com','12345','10:00:00','22:00:00','Non Vegeterian',4,'GST99795','North Indian','Indiranagar','Bangalore');
+insert into restaurant values ('R8','Polar Bear','pb@gmail.com','12345','12:00:00','22:00:00','Vegeterian',5,'GST55375','Multi Cuisine','Mahadev Pura','Bangalore');
+INSERT INTO restaurant VALUES ('R6', 'KFC', 'kfc@gmail.com', 'kfc123', '10:00:00', '22:00:00', 'Non-Veg', '4', 'KFC12GST', 'Multi Cuisine', 'Electronic City', 'Bangalore');
 insert into menu values ('R1',1,'Paneer Tikka','Veg',100);
 insert into menu values ('R1',2,'Chicken Tikka','Non Veg',150);
 insert into menu values ('R1',3,'Paneer Butter Masala','Veg',180);
@@ -36,7 +41,10 @@ insert into menu values ('R10',4,'Alfredo Pasta','Veg',150);
 insert into menu values ('R3',1,'Alfredo Pasta','Veg',100);
 insert into menu values ('R3',2,'Chicken Tikka','Non Veg',150);
 insert into menu values ('R3',3,'Veg Burger','Veg',180);
-insert into menu values ('R3',4,'Chocolate Truffle','Non Veg',90);
+insert into menu values ('R4',1,'Pasta','Veg',100);
+insert into menu values ('R4',2,'Paneer Tikka','Veg',150);
+insert into menu values ('R4',3,'Veg Burger','Veg',180);
+insert into menu values ('R4',4,'Chocolate Cake','Veg',900);
 insert into DeliveryBoy values ('D3','Mahesh','P','mahesh@gmail.com',12345,9898976512,'Available',3,'KA2C7345','LN8712');
 insert into DeliveryBoy values ('D2','Tarun','G','tarun@gmail.com',12345,7898976512,'Available',3,'KA2C0345','LN8012');
 

@@ -18,6 +18,10 @@
         else
             e.style.display = 'block';
     }
+    function toggle_visibility_hide(id) {
+        var e = document.getElementById(id);
+        e.style.display = 'none';
+    }
     function delete_item(id) {
         var items = '<%- JSON.stringify(items) %>';
         var obj = JSON.parse(items);
@@ -66,6 +70,10 @@
                 <td>
                     <input type="submit" onclick="toggle_visibility('popupBoxTwoPosition');" class="btn btn-success"
                         value="Edit">
+                </td>
+                <td>
+                    <input type="button" onclick="toggle_visibility_hide('popupBoxTwoPosition');"
+                        class="btn btn-danger" value="Cancel">
                 </td>
         </div>
         </form>
