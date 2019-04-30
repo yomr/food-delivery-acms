@@ -61,9 +61,14 @@
                         <td><input class="form-control" placeholder="Item Name" type="type" name="itemname"
                                 id="edit-name" required/></td>
                         <td><input class="form-control" placeholder="Item Price" type="type" name="itemprice"
-                                id="edit-price" pattern="[0-9]*"required/></td>
-                        <td><input class="form-control" placeholder="Item Category" type="type" name="itemcategory"
-                                id="edit-category" required /></td>
+                                id="edit-price" pattern="[0-9]*" required /></td>
+                        <td><select class="form-control"  type="type"
+                                name="itemcategory" id="edit-category" >
+                            <option selected disabled hidden>Item Category</option>
+                            <option value="Veg">Veg</option>
+                            <option value="Non Veg">Non Veg</option>
+                            </select>
+                            </td>
                         <td></td>
                     </tr>
                 </table>
